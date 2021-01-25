@@ -5,6 +5,8 @@ from sqlalchemy import create_engine, func
 from flask import Flask, jsonify
 import pandas as pd
 from datetime import datetime
+from scipy import stats 
+import numpy as np 
 
 #Database setup
 engine = create_engine("sqlite:///hawaii.sqlite")
@@ -91,6 +93,20 @@ def start_only(start):
         start_list.append(result)
 
     return jsonify(start_list)
+
+@app.route("/api/v1.0/<string:start>/<string:end>")
+def start_end(start, end):
+    start = datetime.strptime(start, "%Y-%m-%d").date()
+    end = datetime.strptime(end, "%Y-%m-%d").date()
+    session = Session(engine)
+    results = session.query(func.min(Measurement.tobs), func.max(Measurement.tobs), func.avg(Measurement.tobs)).filter(Measurement.date >= start, Measurement.date <= end)
+    session.close()
+
+    start_end_list = []
+    for result in results:
+        start_end_list.append(result)
+
+    return jsonify(start_end_list)
 
 if __name__ == "__main__":
     app.run(debug=True)
