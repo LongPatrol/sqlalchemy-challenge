@@ -4,6 +4,7 @@ from sqlalchemy.orm import Session
 from sqlalchemy import create_engine, func
 from flask import Flask, jsonify
 import pandas as pd
+from datetime import datetime
 
 #Database setup
 engine = create_engine("sqlite:///hawaii.sqlite")
@@ -80,8 +81,9 @@ def tobs():
 
 @app.route("/api/v1.0/<string:start>")
 def start_only(start):
+    start = datetime.strptime(start, "%Y-%m-%d").date()
     session = Session(engine)
-    results = session.query(func.tmin(Measurement.tobs), func.tmax(Measurement.tobs), func.tavg(Measurement.tobs)).filter(Measurement.date >= start)
+    results = session.query(func.min(Measurement.tobs), func.max(Measurement.tobs), func.avg(Measurement.tobs)).filter(Measurement.date >= start)
     session.close()
 
     start_list = []
