@@ -50,11 +50,24 @@ def precipitation_func():
             prcp_list.append(prcp)
       
         precip_dict[date] = prcp_list    
-        
+
     return jsonify(precip_dict)
+
+@app.route("/api/v1.0/stations")
+def stations():
+    session = Session(engine)
+    results = session.query(Station.station)
+    session.close()
+
+    station_list = []
+    for result in results:
+        station_list.append(result)
+
+    return jsonify(station_list)
 
 
 if __name__ == "__main__":
     app.run(debug=True)
+
 
 print("I'm done running")
