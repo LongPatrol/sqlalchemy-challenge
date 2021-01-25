@@ -78,6 +78,18 @@ def tobs():
 
     return jsonify(temperature_list)
 
+@app.route("/api/v1.0/<string:start>")
+def start_only(start):
+    session = Session(engine)
+    results = session.query(func.tmin(Measurement.tobs), func.tmax(Measurement.tobs), func.tavg(Measurement.tobs)).filter(Measurement.date >= start)
+    session.close()
+
+    start_list = []
+    for result in results:
+        start_list.append(result)
+
+    return jsonify(start_list)
+
 if __name__ == "__main__":
     app.run(debug=True)
 
