@@ -3,6 +3,7 @@ from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
 from sqlalchemy import create_engine, func
 from flask import Flask, jsonify
+import pandas as pd
 
 #Database setup
 engine = create_engine("sqlite:///hawaii.sqlite")
@@ -29,7 +30,7 @@ def home():
     )
 
 @app.route("/api/v1.0/precipitation")
-def precipitation():
+def precipitation_func():
     print("Server received request for 'Precipitation' page...")
     #creating session
     session = Session(engine)
@@ -39,9 +40,17 @@ def precipitation():
     #creating a dictionary using date as the key and prcp as the value
     
     precip_dict = {} 
-    for date, prcp in results:
-        precip_dict[date] = prcp
-    
+    for (date, prcp) in results:
+         #Trying to find a way to print all of the precipitation observations for a particular day, but it's still not working.
+        prcp_list = []
+
+        if pd.isnull(prcp) == False:
+            prcp_list.append(prcp)
+        else:
+            prcp_list.append(prcp)
+      
+        precip_dict[date] = prcp_list    
+        
     return jsonify(precip_dict)
 
 
