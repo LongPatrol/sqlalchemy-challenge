@@ -16,7 +16,7 @@ First, we are analyzing the weather for our dream vacation destination -- Honolu
 
 ![Precipitation stats](https://github.com/LongPatrol/sqlalchemy-challenge/blob/main/Pictures/Precip_summary_stats.png)
 
-### How often to specific temperatures occur at the station with the most observations?
+### How often do specific temperatures occur at the station with the most observations?
 
 ![Temperature chart](https://github.com/LongPatrol/sqlalchemy-challenge/blob/main/Pictures/tobs_chart.png) 
 
