@@ -22,7 +22,7 @@ First, we are analyzing the weather for our dream vacation destination -- Honolu
 
 ## Building an app to showcase our climate information
 
-Here we built a flask API in our app.py file with various routes to showcase our information on:
+Here we built a flask API in our [app.py](https://github.com/LongPatrol/sqlalchemy-challenge/blob/main/app.py "app.py title")  file with various routes to showcase our information on:
   1. Precipitation data
   2. Stations 
   3. Temperature Observations (tobs)
