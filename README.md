@@ -15,7 +15,15 @@ First, we are analyzing the weather for our dream vacation destination -- Honolu
 
 ![Precipitation stats](https://github.com/LongPatrol/sqlalchemy-challenge/blob/main/Pictures/Precip_summary_stats.png)
 
+# Building an app to showcase our climate information
 
+Here we built a flask API in our app.py file with various routes to showcase our information on:
+  1. Precipitation data
+  2. Stations 
+  3. Temperature Observations (tobs)
+  4. Minimum, maximum, and average temperature for either:  
+      1. Start date, formatted yyyy-mm-dd (ending at the max date of the data)     
+      2. Start and end dates
 
 # Sources:
 **How to order by descending in SQLalchemy:**
