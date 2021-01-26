@@ -7,9 +7,9 @@ First, we are analyzing the weather for our dream vacation destination -- Honolu
 
 ### What do the last 12 months of precipation data look like?
 
-*One caveat here: this graph includes data from all stations, but plots along a  timeline. This makes the graph misleading, since each date will have multiple bars with it (i.e. '2016-08-23' will have potentially 9 different bars on our graph). Future fix for this would be looking at each station separately.*
+*One caveat here: this graph includes data from all stations, but plots along a  timeline. This makes the graph misleading, since each date will have multiple data points with it (i.e. '2016-08-23' will have potentially 9 points on our graph). Future fix for this would be looking at each station separately.*
 
-![Precipitation chart](https://github.com/LongPatrol/sqlalchemy-challenge/blob/main/Pictures/Precip_bar_chart.png)
+![Precipitation chart](https://github.com/LongPatrol/sqlalchemy-challenge/blob/main/Pictures/Precip_chart.png)
 
 
 ### What are some summary statistics on our precipitation data?
